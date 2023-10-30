@@ -13,7 +13,7 @@
       "subscription_id": "{{user `subscription_id`}}",
       "tenant_id": "{{user `tenant_id`}}",
       "managed_image_resource_group_name": "AndreiMihai_group",
-      "managed_image_name": "prerequisite-stage123456789",
+      "managed_image_name": "ImagineXCuCI",
       "os_type": "Windows",
       "image_publisher": "MicrosoftWindowsServer",
       "image_offer": "WindowsServer",
