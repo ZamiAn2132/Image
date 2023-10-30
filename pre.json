@@ -1,0 +1,48 @@
+{
+  "variables": {
+    "client_id": "{{env `PKR_VAR_client_id`}}",
+    "client_secret": "{{env `PKR_VAR_client_secret`}}",
+    "subscription_id": "{{env `PKR_VAR_subscription_id`}}",
+    "tenant_id": "{{env `PKR_VAR_tenant_id`}}"
+  },
+  "builders": [
+    {
+      "type": "azure-arm",
+      "client_id": "{{user `client_id`}}",
+      "client_secret": "{{user `client_secret`}}",
+      "subscription_id": "{{user `subscription_id`}}",
+      "tenant_id": "{{user `tenant_id`}}",
+      "managed_image_resource_group_name": "AndreiMihai_group",
+      "managed_image_name": "prerequisite-stage123456789",
+      "os_type": "Windows",
+      "image_publisher": "MicrosoftWindowsServer",
+      "image_offer": "WindowsServer",
+      "image_sku": "2019-Datacenter",
+      "location": "East US",
+      "vm_size": "Standard_DS2_v2",
+      "communicator": "winrm",
+      "winrm_use_ssl": true,
+      "winrm_insecure": true,
+      "winrm_timeout": "5m",
+      "winrm_username": "packer"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "scripts": [
+        "install-pre.ps1",
+        "./install-app.ps1",
+        "./firewall-rule.ps1"
+      ]
+    },
+    {
+      "type": "powershell",
+      "script": "./start-app.ps1"
+    },
+    {
+      "type": "powershell",
+      "script": "sysprep.ps1"
+    }
+  ]
+}
