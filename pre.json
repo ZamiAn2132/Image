@@ -33,7 +33,7 @@
       }
     }
   ],
-  "provisioners": [
+  "provisioners": [ 
     {
       "type": "powershell",
       "scripts": [
