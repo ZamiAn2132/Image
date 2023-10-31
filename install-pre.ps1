@@ -1,7 +1,7 @@
 # Set installation directory for .NET SDK
 $dotnetInstallDir = "C:\Program Files\dotnet"
 
-# Ensure .NET installation directory exists
+# .NET installation directory exists
 if (-Not (Test-Path -Path $dotnetInstallDir -PathType Container)) {
     New-Item -Path $dotnetInstallDir -ItemType Directory -Force
 }
@@ -18,13 +18,13 @@ if (Test-Path (Join-Path $dotnetInstallDir "sdk")) {
     exit 1  # Exit the script with an error code
 }
 
-# Install Git
-# Create the C:\temp directory if it doesn't exist
+
+# Install Git and create the C:\temp directory if it doesn't exist
 if (-Not (Test-Path -Path "C:\temp" -PathType Container)) {
     New-Item -Path "C:\temp" -ItemType Directory -Force
 }
 
-# Now, you can proceed with downloading the Git installer
+#  proceed with downloading the Git installer
 $gitInstallerUrl = "https://github.com/git-for-windows/git/releases/download/v2.33.1.windows.1/Git-2.33.1-64-bit.exe"
 $gitInstallerPath = "C:\temp\GitInstaller.exe"
 
