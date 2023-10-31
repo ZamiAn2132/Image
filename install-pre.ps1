@@ -24,7 +24,7 @@ if (-Not (Test-Path -Path "C:\temp" -PathType Container)) {
     New-Item -Path "C:\temp" -ItemType Directory -Force
 }
 
-#  proceed with downloading the Git installer
+# Proceed with downloading the Git installer
 $gitInstallerUrl = "https://github.com/git-for-windows/git/releases/download/v2.33.1.windows.1/Git-2.33.1-64-bit.exe"
 $gitInstallerPath = "C:\temp\GitInstaller.exe"
 
